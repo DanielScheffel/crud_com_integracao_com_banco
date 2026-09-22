@@ -1,0 +1,12 @@
+body {
+    min-height: 100vh;
+}
+
+.carro {
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px 0;
+}
+
+.carro:last-child {
+    border-bottom: none;
+}

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CRUD de Carros</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body class="bg-light">
+    <div class="container py-5">
+      <!-- Título -->
+      <div class="text-center mb-4">
+        <h1 class="fw-bold">CRUD de Carros</h1>
+
+        <p class="text-muted">Cadastro e gerenciamento de veículos</p>
+      </div>
+
+      <!-- Formulário -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Cadastrar carro</h5>
+        </div>
+
+        <div class="card-body">
+          <form id="form-carro">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label for="marca" class="form-label"> Marca </label>
+
+                <input
+                  type="text"
+                  id="marca"
+                  class="form-control"
+                  placeholder="Ex: Toyota"
+                  required
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label for="modelo" class="form-label"> Modelo </label>
+
+                <input
+                  type="text"
+                  id="modelo"
+                  class="form-control"
+                  placeholder="Ex: Corolla"
+                  required
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label for="ano" class="form-label"> Ano </label>
+
+                <input
+                  type="number"
+                  id="ano"
+                  class="form-control"
+                  placeholder="Ex: 2024"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary">
+                Cadastrar carro
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Lista de carros -->
+      <div class="card shadow-sm">
+        <div class="card-header">
+          <h5 class="mb-0">Carros cadastrados</h5>
+        </div>
+
+        <div class="card-body">
+          <div id="lista-carros">
+            <!-- Os carros serão inseridos aqui pelo JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar carro</h5>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="form-editar">
+              <input type="hidden" id="id-editar" />
+
+              <div class="mb-3">
+                <label for="marca-editar" class="form-label"> Marca </label>
+
+                <input
+                  type="text"
+                  id="marca-editar"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="modelo-editar" class="form-label"> Modelo </label>
+
+                <input
+                  type="text"
+                  id="modelo-editar"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="ano-editar" class="form-label"> Ano </label>
+
+                <input
+                  type="number"
+                  id="ano-editar"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+
+            <button type="submit" form="form-editar" class="btn btn-primary">
+              Salvar alterações
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

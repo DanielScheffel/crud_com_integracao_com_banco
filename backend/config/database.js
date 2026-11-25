@@ -1,25 +1,18 @@
+
 import { Sequelize } from 'sequelize';
 
 const sequelize = new Sequelize(
-        process.env.DB_NAME,
-        process.env.DB_USER,
-        process.env.DB_PASSWORD,
+    process.env.DATABASE_URL,
     {
-        host: process.env.DB_HOST,
-        dialect: 'mysql',
+        dialect: 'postgres',
+        logging: false,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        }
     }
 );
-
-// async function testConnection() {
-//     try {
-//         await sequelize.authenticate();
-//         console.log("Conexão com o banco de daedos estabelecida com sucesso!");
-
-//     } catch (error) {
-//         console.log("Não foi possível conectar ao banco de dados:", error);
-//     }
-// }
-
-// testConnection();
 
 export default sequelize;

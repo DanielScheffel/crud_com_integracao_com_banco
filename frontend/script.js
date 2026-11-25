@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/api/cars";
+const API_URL = "/api/cars";
 
 const form = document.getElementById("form-carro");
 

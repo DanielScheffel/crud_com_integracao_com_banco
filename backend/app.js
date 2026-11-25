@@ -1,6 +1,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import express from 'express';
 import cors from 'cors';
 
@@ -13,6 +16,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.resolve(__dirname, '../frontend')));
 
 app.use('/api/cars', carsRoutes);
 
@@ -30,7 +38,7 @@ async function testConnection() {
 testConnection();
 
 app.get("/", (req, res) => {
-    res.send("Olá mundo!")
-})
+    res.sendFile(path.resolve(__dirname, '../frontend/index.html'));
+});
 
 export default app;
